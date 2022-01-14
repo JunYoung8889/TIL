@@ -39,14 +39,12 @@
 
 * `git remote`  : remote 별명확인
 * `git remote -v` : remote 주소 확인
-
 * `git add .` : `.` 전부다!!!! 
 * `git add 파일명.확장자` : 특정 파일만 올려
 * `git status` :  `add`가 잘 됐는지 확인
 * `git commit -m '<commit message>'` :  why 를 적어주
 * `git push` : github에 올려줘~~~
-
-
+* `git push -u origin master`
 
 ### pull/clone
 
