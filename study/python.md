@@ -163,5 +163,112 @@
 
 ---
 
+### 문제 2
+
+- 허리둘레 32 inch 는 몇 cm인가?
+
+- ```python
+  # 1 inch = 2.54 cm
+  strVariable = input('허리둘레 몇 inch?(숫자만입력) : ')
+  fVar = float(strVariable)
+  inch = 2.54 * fVar
+  #print('%.2f inch => %.2f cm'%( fVar, inch ))
+  #print('{0:.2f} inch => {1:.2f} cm'.format(fVar,inch))
+  print(f'{fVar:.2f} inch => {inch:.2f} cm')
+  ```
+
+
+
+---
+
+### 문제 3
+
+- 몸무게 75kg은 몇 lb(파운드) 인가?
+
+- ```python
+  # 1kg = 2.2046lb
+  iVar = int(input('몸무게 몇 kg?(숫자만입력) : '))
+  lb = iVar * 2.2046
+  #print('%.2f kg =>  %.2f lb'%(iVar,lb))
+  #print('{:.2f} kg =>  {:.2f} lb'.format(iVar,lb))
+  #print('{0:.2f} kg =>  {1:.2f} lb'.format(iVar,lb))
+  print(f'{iVar:.2f} kg =>  {lb:.2f} lb')
+  ```
+
+
+
+---
+
+### 문제 4
+
+- 화씨 100도는 섭씨 몇도?
+
+- 100 ℃  = 212 ℉ / 0 ℃ =  32 ℉
+
+- 섭씨 100칸 = 화씨 180칸
+
+- 섭씨 *180/100 +32 = 화씨 ~~확씨~~ 
+
+- (화씨-32) *100/180 = 섭씨
+
+- ```python
+  strVariable = input('화씨 몇도?(숫자만입력) : ')
+  fVar = float(strVariable)
+  C = ( fVar - 32 ) * 100 / 180
+  #print('%.2f ℉ =>  %.2f ℃'%(fVar,C))
+  #print('{:.2f} ℉ =>  {:.2f} ℃'.format(fVar,C))
+  #print('{0:.2f} ℉ =>  {1:.2f} ℃'.format(fVar,C))
+  print(f'{fVar:.2f} ℉ =>  {C:.2f} ℃')
+  ```
+
+
+
+---
+
+### 문제 5
+
+- 섭씨 100도는 화씨 몇도?
+
+- 섭씨 *180/100 +32 = 화씨
+
+- ```python
+  strVariable = input('섭씨 몇도?(숫자만입력) : ')
+  fVar = float(strVariable)
+  F = fVar * 180 / 100 + 32
+  #print('%.2f ℃ =>  %.2f ℉'%(fVar,F))
+  #print('{:.2f} ℃ =>  {:.2f} ℉'.format(fVar,F))
+  #print('{0:.2f} ℃ =>  {1:.2f} ℉'.format(fVar,F))
+  print(f'{fVar:.2f} ℃ =>  {F:.2f} ℉')
+  ```
+
+
+
+---
+
+### 문제 6
+
+- 농도 30 % 소금물 100g + 농도 50% 소금물 300g
+
+- 혼합된 소금물의 농도?
+
+- [김소원 소금물](https://www.youtube.com/watch?v=WFOKyWcOKC8)
+
+- 전체 소금의 무게 / 전체 소금물 무게 * 100%
+
+- ```python
+  # 농도 30 % 소금물 100g + 농도 50% 소금물 300g
+  salt = (100*0.3 + 300*0.5) /( 100 + 300 ) * 100
+  #print('혼합된 소금물의 농도: %.2f%%'%salt) # %% 주의
+  #print('혼합된 소금물의 농도: {:.2f}%'.format(salt))
+  #print('혼합된 소금물의 농도: {0:.2f}%'.format(salt))
+  print(f'혼합된 소금물의 농도: {salt:.2f}%')
+  ```
+
+
+
+---
+
+
+
 
 
