@@ -268,7 +268,204 @@
 
 ---
 
+### 임시 기록
 
+- ASCII - American Standard Code of Information Interchange
+
+  - 영문 + 기호 => 7bit
+  - 한글 + 영문 + 기호 => 16bit
+
+- 2진수, bit, binary digit
+
+- 인터프리터 언어
+
+  - 대화식 환경
+
+- 명령프롬프트
+
+  - python  + 엔터
+
+  - 인터프리터 프롬프트 >>> print('hello')
+
+- String, 문자열
+
+- 내장함수 built in function
+
+- IDLE - Integrated 통합 Development 개발
+
+-  and Learning 학습 Environment 환경
+
+- \ 뺵 슬레쉬
+
+- 변수 Variable
+
+  - 저장공간
+
+- = 지정연산자
+
+- +,-,*,/,//,%,** 산술연산자
+
+- del(x) 변수삭제
+
+- 명령행
+
+  - 물리적 명령행 : 한 줄
+  - 논리적 명령행 : 한 명령
+    - i=10
+    - print(i) 2물리 2논리
+    - i=10; print(i) 1물리 2논리
+
+- 들여쓰기(indent)
+
+  - 공백4칸, 1탭, 한명령의 범위
+  - 블록 block
+  - 같은 들여쓰기 명령집합
+
+- 에디터창
+
+  - 저장, 실행, 여러줄 작성가능
+  - 탐색기 실행 => test.py 실행 후 바로 꺼짐
+  - 마지막줄에 input() 작성하면 입력받기위해 바로안꺼짐
+  - import os
+  - os.system('pause')
+
+- 값이 변할 수 있는 수를 저장할 수 있는 저장공간
+
+  - 변수, variable
+
+- 문자열 또는 숫자 등의 결과를 출력할때 사용되는 함수
+
+  - print()
+
+- 주석문
+
+  - 쉽게파악, 도움, 설명문
+  - 영향 x
+  - '#' 한줄
+  - ''' 또는 """
+  - 여러줄
+  - ''' 또는 """
+
+- import math
+
+- math.pi
+
+- math.sqrt
+
+- 1.2 e0 => 1.2 * 10^0
+
+- 1.2 E3 => 1.2 * 10^3
+
+- \n 줄바꿈
+
+- 예약어, keyword
+
+  - reserved word
+  - 기능, 사용용도가 이미 정해짐
+  - 변수, 함수이름으로 사용하지말것
+  - import keyword
+  - keyword.kwlist
+
+- 식별자, identifier
+
+  - 변수이름, 사용자 정의함수 이름
+  - 클레스 모듈 이름
+  - 숫자로 시작x
+  - 영문, 숫자, 밑줄, 유니코드문자, 한글도 가능함
+
+- 변수 variable
+
+  - 변할 수 있는 값
+    - 반대, 상수 - constant
+  - 값을 저장하는 공간
+  - 타 언어처럼 미리 선언할 필요 없음
+
+- 변수이름
+
+  - 식별자와 같은 규칙
+  - 일반적으로 변수는 소문자, 상수는 대문자
+  - 사용목적에 상관있는 이름으로 만드는게 일반적임
+  - 이름이 길면 밑줄_ 사용
+  - 중간에 대문자를 써서 낙타체로 사용
+  - 특수문자 x
+
+- 변수의 종류
+
+  - data type에 따라 구분
+  - 부울형, 정수형, 실수형, 문자열, 복소수형 등등
+
+- 연산자 operator
+
+  - 산술, 관계, 논리, 증감, 비트, 지정
+
+- 상수 Constant
+
+  - 값 변화x
+  - 숫자, 문자열
+
+- 주석문 comment
+
+  - 코드를 쉽게 파악할 수 있게 도움
+  - 설명문
+  - 한줄을 쓰고 싶으면 '#'을 사용
+  - 여러줄을 쓰고 싶으면
+  - '''                 """
+  - 여러줄       여러줄
+  - '''                """
+
+- 함수
+
+  - 내장함수 built in function
+  - 사용자 정의 함수 user defined function
+
+- 지정연산자 =
+
+  - 값을 지정해준다.
+
+- 기본 입출력 함수
+
+  - input() 입력
+  - print() 출력
+
+- print()
+
+  - %d 정수 %f 실수 %s 문자열 %c 한글자 %x 16진수 %o 8진수
+  - 10진수 decimal
+  - 8진수 octal
+  - 16진수 hexa decimal
+  - n =123
+  - print('%d'%n)  => 123
+  - print(''%6d'%n) =>    123 # 글자수 6글자, 빈칸 공백
+  - print('%06d'%n) => 000123 # 글자수 6글자, 빈칸 0
+  - fn = 12.345
+  - print('%f'%fn) => 12.345000
+  - print('%7.1f'%fn) =>    12.3 # .을 포함해서 7글자, 소수점 1번째자리까지
+  - print('%07.1f'%fn) => 00012.3 # 7글자, 빈칸 0, 소수점 1번째자리까지
+  - print('%07.3f'%fn) => 012.345 # 7글자, 빈칸 0, 소수점 3번째자리까지
+  - print('%.2f'%fn) => 12.35 # 반올림됨
+  - s = 'program'
+  - print('%10s'%s) =>    program # 10글자, 빈칸 공백
+  - pi=3.14; name='kim'; age=20
+  - print('name=%s, age=%d, pi=%.1f'%(name,age,pi))
+  - print('name={0}, age={1}, pi={2:.1f}'.format(name,age,pi))
+  - print(f'name={name}, age={age}, pi={pi:.1f}')
+    - f-문자열 리터럴 기능
+
+- input()
+
+  - str
+  - int(), float(), str()
+
+- type()
+
+  - <class ' '>
+
+- 2진수, 8진수, 16진수
+
+  - 0b0101, 0o7577, 0xF09A
+  - bin(), oct(), hex()
+
+- 000_000.000_0001 밑줄 사용가능
 
 
 
