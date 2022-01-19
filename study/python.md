@@ -5,20 +5,22 @@
 - variable ( 변수 )
 - print(), input() ( 표준입출력함수 )
 
-  
+
+
+
 
 ---
 
 ### variable ( 변수 )
 
 - ```python
-  numVariable = 10
-  numVariable2 = 10 + 20
-  strVariable = '10'
-  strVariable2 = '안녕'
-  listVariable = [10,'10','안녕',True]
-  boolVariable = True
-  noneVariable = None
+  num_var_01 = 10
+  num_var_02 = 10 + 20
+  str_var_01 = '10'
+  str_var_02 = '안녕'
+  list_var = [10,'10','안녕',True]
+  bool_var = True
+  none_var = None
   ```
 
 - 지정연산자 ( = ) 으로 오른쪽의 값을 왼쪽 변수에 저장한다.
@@ -29,7 +31,9 @@
 
 - 변수는 자료형의 값을 저장하는 공간 혹은 객체라고 할 수 있다.
 
-  
+
+
+
 
 ---
 
@@ -54,45 +58,48 @@
 
   - `print( str , str )` 은 두 문자열 사이에 공백 1칸이 생긴다.
 
-    
+  
 
+  
+  
   - ```python
-    strVariable1 = '안녕'
-    strVariable2 = '파이썬'
-    print( strVariable1 , strVariable2 )
-    print( '%s %s'%( strVariable1 , strVariable2 ) )
-    print( f'{ strVariable1 } { strVariable2 }' )
-    print('{} {}'.format( strVariable1, strVariable2 ) )
-    print('{0} {1}'.format(strVariable1,strVariable2))
-    print('{1} {0}'.format(strVariable2,strVariable1))
+    str_var_01 = '안녕'
+    str_var_02 = '파이썬'
+    print(str_var_01, str_var_02)
+    print('%s %s'%( str_var_01, str_var_02 ))
+    print(f'{str_var_01} {str_var_02}')
+    print('{} {}'.format(str_var_01, str_var_02))
+    print('{0} {1}'.format(str_var_01, str_var_02))
+    print('{1} {0}'.format(str_var_02, str_var_01))
     ```
 
-  - `print('%s %d %f'%(strVariable, intVariable, floatVariable))`
-
+  - `print('%s %d %f'%(str_var, int_var, float_var))`
+  
     - % 이후 해당 자료형의 약자를 쓰고 ''뒤에 %(변수이름) 형태로
     - 문장 내부에 변수의 값을 출력할 수 있다.
 
-  - `print( f'{ variable } { variable2 } { variable3 }' )`
-
+  - `print( f'{var_01} {var_02} {var_03}' )`
+  
     - f string 형태로 {}내부에 변수이름을 작성해서
     - 문장 내부에 변수의 값을 출력할 수 있다.
 
   - `print('{인덱스}'.format(변수이름))`
-
+  
     - str.format() 으로 {}안에 인덱스 넘버를 지정해주면
     - format() 안의 변수이름들을 인덱스 넘버에 맞게
     - 문장 내부에 변수의 값을 출력할 수 있다.
     - 인덱스 넘버를 지정하지 않고 {}만 작성할 경우 순차적으로 출력한다.
 
 
-​    
+
+
 
   - ```python
     print(30)
     print(10+20)
     print(3*10)
-    numVariable = 30
-    print(numVariable)
+    num_var = 30
+    print(num_var)
     print([1,2,3])
     print(None)
     print(True)
@@ -100,15 +107,17 @@
 
   - 숫자, 리스트, 부울, None 등 다양한 자료형 객체들을 출력할 수 있다.
 
-  
+ 
+
+ 
 
 - input()
 
   - 데이터를 키보드로 입력받는 함수이다.
 
   - ```python
-    strVariable = input()
-    print(strVariable)
+    str_var = input()
+    print(str_var)
     ```
 
   - 첫번째 코드가 실행되면 결과를 바로 출력하지 않고 커서가 깜빡인다.
@@ -121,28 +130,32 @@
 
   - `print()` 함수를 통해 `안녕 파이썬` 이 출력된다.
 
-    
+  
 
+  
+  
   - ```python
-    strVariable = input() # 10을 입력하면 문자열 '10'이 된다.
-    print( 2 * strVariable ) # '1010' , 문자열이 2번 반복
-    intVariable = int(strVariable) # 10
-    print( 2 * intVariable ) # 20
+    str_var = input() # 10을 입력하면 문자열 '10'이 된다.
+    print( 2 * str_var ) # '1010' , 문자열이 2번 반복
+    int_var = int(str_var) # 10
+    print( 2 * int_var ) # 20
     ```
 
   - `input()` 으로 입력받은 값은 기본적으로 문자열이다.
 
   - 이후 계산을 원한다면 원하는 자료형에 맞춰 변경해 주어야한다.
-
+  
   - ```python
-    strVar = input('10을 입력해주세요 : ')
-    intVar = int(input('20을 입력해주세요 : '))
-    print(int(strVar)+intVar) # 30
+    str_var = input('10을 입력해주세요 : ')
+    int_var = int(input('20을 입력해주세요 : '))
+    print(int(str_var)+int_var) # 30
     ```
 
   - `input()` 내부에 문장을 적어서 값을 입력받기 전에 알려줄 수 있다.
 
-  
+
+
+
 
 ---
 
@@ -151,10 +164,10 @@
 - 8 + 88 + 888  = 984
 
 - ```python
-  strVar = input('1~9 원하는 숫자를 입력해주세요 : ')
-  a = int(strVar)
-  aa = int(strVar*2)
-  aaa = int(strVar*3)
+  str_var = input('1~9 원하는 숫자를 입력해주세요 : ')
+  a = int(str_var)
+  aa = int(str_var*2)
+  aaa = int(str_var*3)
   total = a + aa + aaa
   #print('%d + %d + %d = %d'%(a,aa,aaa,total))
   #print(f'{a} + {aa} + {aaa} = {total}')
@@ -162,7 +175,10 @@
   print('{1} + {3} + {2} = {0}'.format(total,a,aaa,aa))
   ```
 
-  
+
+
+
+
 
 ---
 
@@ -172,15 +188,18 @@
 
 - ```python
   # 1 inch = 2.54 cm
-  strVariable = input('허리둘레 몇 inch?(숫자만입력) : ')
-  fVar = float(strVariable)
-  inch = 2.54 * fVar
-  #print('%.2f inch => %.2f cm'%( fVar, inch ))
-  #print('{0:.2f} inch => {1:.2f} cm'.format(fVar,inch))
-  print(f'{fVar:.2f} inch => {inch:.2f} cm')
+  str_var = input('허리둘레 몇 inch?(숫자만입력) : ')
+  f_var = float(str_var)
+  inch = 2.54 * f_var
+  #print('%.2f inch => %.2f cm'%( f_var, inch ))
+  #print('{0:.2f} inch => {1:.2f} cm'.format(f_var,inch))
+  print(f'{f_var:.2f} inch => {inch:.2f} cm')
   ```
   
-  
+
+
+
+
 
 ---
 
@@ -190,15 +209,18 @@
 
 - ```python
   # 1kg = 2.2046lb
-  iVar = int(input('몸무게 몇 kg?(숫자만입력) : '))
-  lb = iVar * 2.2046
-  #print('%.2f kg =>  %.2f lb'%(iVar,lb))
-  #print('{:.2f} kg =>  {:.2f} lb'.format(iVar,lb))
-  #print('{0:.2f} kg =>  {1:.2f} lb'.format(iVar,lb))
-  print(f'{iVar:.2f} kg =>  {lb:.2f} lb')
+  i_var = int(input('몸무게 몇 kg?(숫자만입력) : '))
+  lb = i_var * 2.2046
+  #print('%.2f kg =>  %.2f lb'%(i_var,lb))
+  #print('{:.2f} kg =>  {:.2f} lb'.format(i_var,lb))
+  #print('{0:.2f} kg =>  {1:.2f} lb'.format(i_var,lb))
+  print(f'{i_var:.2f} kg =>  {lb:.2f} lb')
   ```
 
-  
+
+
+
+
 
 ---
 
@@ -215,16 +237,19 @@
 - (화씨-32) *100/180 = 섭씨
 
 - ```python
-  strVariable = input('화씨 몇도?(숫자만입력) : ')
-  fVar = float(strVariable)
-  C = ( fVar - 32 ) * 100 / 180
-  #print('%.2f ℉ =>  %.2f ℃'%(fVar,C))
-  #print('{:.2f} ℉ =>  {:.2f} ℃'.format(fVar,C))
-  #print('{0:.2f} ℉ =>  {1:.2f} ℃'.format(fVar,C))
-  print(f'{fVar:.2f} ℉ =>  {C:.2f} ℃')
+  str_var = input('화씨 몇도?(숫자만입력) : ')
+  f_var = float(str_var)
+  C = ( f_var - 32 ) * 100 / 180
+  #print('%.2f ℉ =>  %.2f ℃'%(f_var,C))
+  #print('{:.2f} ℉ =>  {:.2f} ℃'.format(f_var,C))
+  #print('{0:.2f} ℉ =>  {1:.2f} ℃'.format(f_var,C))
+  print(f'{f_var:.2f} ℉ =>  {C:.2f} ℃')
   ```
 
-  
+
+
+
+
 
 ---
 
@@ -235,16 +260,19 @@
 - 섭씨 *180/100 +32 = 화씨
 
 - ```python
-  strVariable = input('섭씨 몇도?(숫자만입력) : ')
-  fVar = float(strVariable)
-  F = fVar * 180 / 100 + 32
-  #print('%.2f ℃ =>  %.2f ℉'%(fVar,F))
-  #print('{:.2f} ℃ =>  {:.2f} ℉'.format(fVar,F))
-  #print('{0:.2f} ℃ =>  {1:.2f} ℉'.format(fVar,F))
-  print(f'{fVar:.2f} ℃ =>  {F:.2f} ℉')
+  str_var = input('섭씨 몇도?(숫자만입력) : ')
+  f_var = float(str_var)
+  F = f_var * 180 / 100 + 32
+  #print('%.2f ℃ =>  %.2f ℉'%(f_var,F))
+  #print('{:.2f} ℃ =>  {:.2f} ℉'.format(f_var,F))
+  #print('{0:.2f} ℃ =>  {1:.2f} ℉'.format(f_var,F))
+  print(f'{f_var:.2f} ℃ =>  {F:.2f} ℉')
   ```
 
-  
+
+
+
+
 
 ---
 
@@ -267,7 +295,91 @@
   print(f'혼합된 소금물의 농도: {salt:.2f}%')
   ```
 
-  
+
+
+
+
+
+---
+
+### 문제 7
+
+- 사용자에게 자연수를 입력받고, 해당 자연수의 약수들을 출력해보자!
+
+- ```python
+  num = int(input('자연수를 입력해주세요. : ')) # 연산을 위해 int()
+  for i in range(1,num+1,1): # range(start,stop,step)
+      if num%i == 0: # 나누어 떨어지면 / 나머지가 0이면
+          #print('%d는 %d의 약수'%(i,num))
+          #print('{}는 {}의 약수'.format(i,num))
+          #print('{0}는 {1}의 약수'.format(i,num))
+          print(f'{i}는 {num}의 약수')
+  ```
+
+
+
+
+
+---
+
+### 문제 8
+
+- 사용자에게 자연수를 입력받고, 해당 자연수가 소수인지 판단해보자!
+
+- ```python
+  num = int(input('자연수를 입력해주세요. : ')) # 연산을 위해 int()
+  cnt = 0 # 약수가 몇개인지 판단하기위해 카운트!
+  for i in range(1,num+1,1):
+      if num%i == 0: # 나누어 떨어지면 / 나머지가 0이면
+          cnt += 1 # cnt = cnt + 1
+  if cnt == 2:
+      print('소수 입니다.')
+  else:
+      print('소수가 아닙니다.')
+  ```
+
+
+
+
+
+---
+
+### 문제 9
+
+- 사용자가 입력한 문자 대소문자를 구별하시오.
+
+- ```python
+  char = input('문자를 입력해주세요. : ')
+  if char.isupper():
+      #print('%s 는 대문자 입니다.'%char)
+      #print('{} 는 대문자 입니다.'.format(char))
+      #print('{0} 는 대문자 입니다.'.format(char))
+      print(f'{char} 는 대문자 입니다.')
+  elif char.islower():
+      #print('%s 는 소문자 입니다.'%char)
+      #print('{} 는 소문자 입니다.'.format(char))
+      #print('{0} 는 소문자 입니다.'.format(char))
+      print(f'{char} 는 소문자 입니다.')
+  else:
+      #print('%s 는 알파벳이 아닙니다.'%char)
+      #print('{} 는 알파벳이 아닙니다.'.format(char))
+      #print('{0} 는 알파벳이 아닙니다.'.format(char))
+      print(f'{char} 는 알파벳이 아닙니다.')
+  ```
+
+
+
+
+
+---
+
+### 문제 10
+
+
+
+
+
+
 
 ---
 
