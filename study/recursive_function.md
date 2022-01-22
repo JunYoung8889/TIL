@@ -108,13 +108,15 @@
 
   - factorial(n) = `1 * 2 * ••• * n`
 
-  - P(1)이 성립함을 보여라
+  - factorial(n) = n * factorial(n-1)
 
+  - P(1)이 성립함을 보여라
+  
     - 해당 점화식의 첫째항은 1이다. (0이면 전체 곱 0)
     - factorial(1) = 1
 
   - P(n-1)이 T이면 P(n)이 T임을 보여라
-
+  
     - p -> q
     - p : factorial(n-1) =  `1 * 2 * ••• * (n-1)`
     - q : factorial(n) = n * factorial(n-1)
@@ -124,7 +126,7 @@
     - 따라서 p가 T이면 q가 T임을 보였다.
 
   - 코드
-
+  
   - ```python
     def facto(n):
         if n == 1:
@@ -182,7 +184,7 @@
 
 ---
 
-### 선택정렬
+### 선택 정렬
 
 - [JunYoung8889/TIL/study/sort.md](https://github.com/JunYoung8889/TIL/blob/master/study/sort.md)
 
@@ -192,9 +194,16 @@ def my_sort(para_list):
         return para_list
     else:
         min_num = min(para_list)
-        para_list.remove(min(para_list))
+        para_list.remove(min_num)
         return [min_num] + my_sort(para_list)
     
 print(my_sort([ 5, 8, 2, 6, 3, 1, 7, 4 ]))
 ```
 
+
+
+---
+
+### 삽입 정렬
+
+- 
