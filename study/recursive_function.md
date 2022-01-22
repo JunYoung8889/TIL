@@ -2,7 +2,7 @@
 
 ### 유튜브 추천
 
-- [유뷰브 - 얄팍한 코딩사전 - 재귀함수](https://www.youtube.com/watch?v=aPYE0anPZqI)
+- [유튜브 - 얄팍한 코딩사전 - 재귀함수](https://www.youtube.com/watch?v=aPYE0anPZqI)
 
 
 
@@ -204,6 +204,51 @@ print(my_sort([ 5, 8, 2, 6, 3, 1, 7, 4 ]))
 
 ---
 
+### 버블 정렬
+
+```python
+def my_sort(para_list):
+    ans_bool = True
+    for i in range(len(para_list) -1):
+        if para_list[i] > para_list[i+1]:
+            ans_bool = False
+            para_list[i], para_list[i+1] = para_list[i+1], para_list[i]
+            print(para_list)
+    if ans_bool == True:
+        return para_list
+    else:
+        return my_sort(para_list)
+
+    
+print(my_sort([ 5, 8, 2, 6, 3, 1, 7, 4 ]))
+```
+
+
+
+
+
+---
+
 ### 삽입 정렬
 
-- 
+```python
+def my_sort(para_list):
+    ans_bool = True
+    for i in range(1,len(para_list)):
+        for j in range(i):
+            if para_list[j] > para_list[i]:
+                ans_bool = False
+                temp = para_list[i]
+                for k in range(i,j,-1):
+                    para_list[k] = para_list[k-1]
+                para_list[j] = temp
+                print(para_list)
+    if ans_bool == True:
+        return para_list
+    else:
+        return my_sort(para_list)
+
+    
+print(my_sort([ 5, 8, 2, 6, 3, 1, 7, 4 ]))
+```
+
