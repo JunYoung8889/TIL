@@ -155,7 +155,27 @@
 
 
 
+---
 
+### and, or, &, |
+
+- ```python
+  a = 5 and 4 # 4
+  b = 0 and 3 # 0
+  c = 3 and 0 # 0
+  d = 5 or 4 # 5
+  e = 0 or 5 # 5
+  f = 5 or 0 # 5
+  print(a,b,c,d,e,f) # 4 0 0 5 5 5
+  print(True & True) # True
+  print(True & False) # False
+  print(False & True) # False
+  print(True | True) # True
+  print(True | False) # True
+  print(False | True) # True
+  ```
+
+- 
 
 ---
 
