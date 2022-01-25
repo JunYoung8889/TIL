@@ -5,10 +5,6 @@
 - variable ( 변수 )
 - print(), input() ( 표준입출력함수 )
 
-
-
-
-
 ---
 
 ### variable ( 변수 )
@@ -30,10 +26,6 @@
 - 변수이름은 용도의 의미에 맞게 만들면 좋다.
 
 - 변수는 자료형의 값을 저장하는 공간 혹은 객체라고 할 수 있다.
-
-
-
-
 
 ---
 
@@ -58,10 +50,6 @@
 
   - `print( str , str )` 은 두 문자열 사이에 공백 1칸이 생긴다.
 
-  
-
-  
-  
   - ```python
     str_var_01 = '안녕'
     str_var_02 = '파이썬'
@@ -72,27 +60,23 @@
     print('{0} {1}'.format(str_var_01, str_var_02))
     print('{1} {0}'.format(str_var_02, str_var_01))
     ```
-
+  
   - `print('%s %d %f'%(str_var, int_var, float_var))`
   
     - % 이후 해당 자료형의 약자를 쓰고 ''뒤에 %(변수이름) 형태로
     - 문장 내부에 변수의 값을 출력할 수 있다.
-
+  
   - `print( f'{var_01} {var_02} {var_03}' )`
   
     - f string 형태로 {}내부에 변수이름을 작성해서
     - 문장 내부에 변수의 값을 출력할 수 있다.
-
+  
   - `print('{인덱스}'.format(변수이름))`
   
     - str.format() 으로 {}안에 인덱스 넘버를 지정해주면
     - format() 안의 변수이름들을 인덱스 넘버에 맞게
     - 문장 내부에 변수의 값을 출력할 수 있다.
     - 인덱스 넘버를 지정하지 않고 {}만 작성할 경우 순차적으로 출력한다.
-
-
-
-
 
   - ```python
     print(30)
@@ -106,10 +90,6 @@
     ```
 
   - 숫자, 리스트, 부울, None 등 다양한 자료형 객체들을 출력할 수 있다.
-
- 
-
- 
 
 - input()
 
@@ -130,30 +110,24 @@
 
   - `print()` 함수를 통해 `안녕 파이썬` 이 출력된다.
 
-  
-
-  
-  
   - ```python
     str_var = input() # 10을 입력하면 문자열 '10'이 된다.
     print( 2 * str_var ) # '1010' , 문자열이 2번 반복
     int_var = int(str_var) # 10
     print( 2 * int_var ) # 20
     ```
-
-  - `input()` 으로 입력받은 값은 기본적으로 문자열이다.
-
-  - 이후 계산을 원한다면 원하는 자료형에 맞춰 변경해 주어야한다.
   
+  - `input()` 으로 입력받은 값은 기본적으로 문자열이다.
+  
+  - 이후 계산을 원한다면 원하는 자료형에 맞춰 변경해 주어야한다.
+
   - ```python
     str_var = input('10을 입력해주세요 : ')
     int_var = int(input('20을 입력해주세요 : '))
     print(int(str_var)+int_var) # 30
     ```
-
+  
   - `input()` 내부에 문장을 적어서 값을 입력받기 전에 알려줄 수 있다.
-
-
 
 ---
 
@@ -175,8 +149,6 @@
   print(False | True) # True
   ```
 
-- 
-
 ---
 
 ### 문제 1
@@ -195,9 +167,7 @@
   print('{1} + {3} + {2} = {0}'.format(total,a,aaa,aa))
   ```
 
-
-
-
+https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
 
 
 ---
@@ -217,9 +187,7 @@
   ```
   
 
-
-
-
+https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
 
 ---
 
@@ -237,9 +205,7 @@
   print(f'{i_var:.2f} kg =>  {lb:.2f} lb')
   ```
 
-
-
-
+https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
 
 
 ---
@@ -266,9 +232,7 @@
   print(f'{f_var:.2f} ℉ =>  {C:.2f} ℃')
   ```
 
-
-
-
+https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
 
 
 ---
@@ -289,9 +253,7 @@
   print(f'{f_var:.2f} ℃ =>  {F:.2f} ℉')
   ```
 
-
-
-
+https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
 
 
 ---
@@ -315,9 +277,7 @@
   print(f'혼합된 소금물의 농도: {salt:.2f}%')
   ```
 
-
-
-
+https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
 
 
 ---
@@ -336,9 +296,7 @@
           print(f'{i}는 {num}의 약수')
   ```
 
-
-
-
+https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
 
 ---
 
@@ -358,9 +316,7 @@
       print('소수가 아닙니다.')
   ```
 
-
-
-
+https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
 
 ---
 
@@ -387,19 +343,29 @@
       print(f'{char} 는 알파벳이 아닙니다.')
   ```
 
-
-
-
+https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
 
 ---
 
 ### 문제 10
 
+```python
+Man1 = input()
+Man2 = input()
+if Man1 == Man2:
+    print('Result : Draw')
+else:
+    if Man1 == '가위' and Man2 == '보':
+        print('Result : Man1 Win!')
+    elif Man1 == '보' and Man2 == '가위':
+        print('Result : Man2 Win!')
+    elif Man1 > Man2:  # '가위' < '바위' < '보'
+        print('Result : Man1 Win!')
+    else:
+        print('Result : Man2 Win!')
+```
 
-
-
-
-
+https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
 
 ---
 
