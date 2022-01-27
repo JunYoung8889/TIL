@@ -2,7 +2,7 @@
 
 ### 들어가기 전에
 
-- 함수를 학습했던 순간을 기억해봅시다.
+- 함수를 학습했던 순간을 떠올려 봅시다.
 
 - ```python
   def add(x,y):
@@ -13,17 +13,18 @@
   ```
 
 - ```python
-  a = ['1','2','3']
-  b = map(int, a)
-  print(b)
-  type(b)
-  ```
-
-- ```python
   a = [1,2,3]
+  print(type(a))
   print(a)
   a.append(4)
   print(a)
+  ```
+  
+- ```python
+  a = ['1','2','3']
+  b = map(int, a)
+  print(b)
+  print(type(b))
 
 ---
 
@@ -127,6 +128,141 @@ print(Circle.pi, id(Circle.pi))
 print(c2.pi, id(c2.pi))
 print(c1.r)
 print(c1.area())
+```
+
+---
+
+```python
+class Person:
+    population = 0
+    
+    @staticmethod
+    def add_population():
+        Person.population += 1
+        
+class Student(Person):
+    population = 0
+        
+Person.add_population()
+print(Person.population) # 1
+
+Student.add_population()
+print(Student.population) # 0
+```
+
+```python
+class Person:
+    population = 0
+    
+    @classmethod
+    def add_population(cls):
+        cls.population += 1
+        
+class Student(Person):
+    population = 0
+    
+        
+Person.add_population()
+print(Person.population) # 1
+
+Student.add_population()
+print(Student.population) # 1
+```
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def talk(self):
+        print(f'반갑습니다. {self.name}입니다.')
+        
+class Student(Person):
+    def __init__(self, name, age, gpa):
+        self.name = name
+        self.age = age
+        self.gpa = gpa
+    def talk(self):
+        print(f'충성충성! {self.name}입니다. 교수님. ^^7')
+
+s1 = Student('승운', 20, 4.5)
+s1.talk()
+```
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def talk(self):
+        print(f'반갑습니다. {self.name}입니다.')
+        
+class Student(Person):
+    def __init__(self, name, age, student_id):
+        super().__init__(name, age)
+        self.student_id = student_id
+    def talk(self):
+        print(f'충성충성! {self.student_id} {self.name}입니다. 교수님. ^^7')
+
+s1 = Student('준영', 28, '20141648')
+s1.talk()
+```
+
+```python
+class A:
+    name = 'A'
+class B(A):
+    name = 'B'
+class C(A):
+    name = 'C'
+class D(B, C):
+    pass
+d = D()
+print(d.name)
+```
+
+```python
+class Person:
+    
+    def __init__(self, name, age):
+        self.name = name
+        self._age = age
+    
+    def get_age(self):
+        return self._age
+    
+p1 = Person('송지', 23)
+print(p1._age) # 가능은 하지만, 암묵적으로 이렇게 하지말자
+print(p1.get_age())
+```
+
+```python
+class Person:
+    
+    def __init__(self, name, age):
+        self.name = name
+        self.__age = age
+    
+    def get_age(self):
+        return self.__age
+    
+p1 = Person('송지', 23)
+#print(p1.__age) 불가능 
+print(p1.get_age())
+```
+
+```python
+class Person:
+    
+    def __init__(self, age):
+        self._age = age
+        
+    @property
+    def age(self):
+        return self._age - 10
+    
+p1 =Person(30)
+print(p1.age)
 ```
 
 
