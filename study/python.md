@@ -153,18 +153,12 @@
 
 ### 문제 1
 
-- 8 + 88 + 888  = 984
-
 - ```python
-  str_var = input('1~9 원하는 숫자를 입력해주세요 : ')
-  a = int(str_var)
-  aa = int(str_var*2)
-  aaa = int(str_var*3)
-  total = a + aa + aaa
-  #print('%d + %d + %d = %d'%(a,aa,aaa,total))
-  #print(f'{a} + {aa} + {aaa} = {total}')
-  #print('{} + {} + {} = {}'.format(a,aa,aaa,total))
-  print('{1} + {3} + {2} = {0}'.format(total,a,aaa,aa))
+  a=input()
+  aa=int(a*2)
+  aaa=int(a*3)
+  aaaa=int(a*4)
+  print(int(a)+aa+aaa+aaaa)
   ```
 
 https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
@@ -174,18 +168,15 @@ https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6
 
 ### 문제 2
 
-- 허리둘레 32 inch 는 몇 cm인가?
-
 - ```python
-  # 1 inch = 2.54 cm
-  str_var = input('허리둘레 몇 inch?(숫자만입력) : ')
-  f_var = float(str_var)
-  inch = 2.54 * f_var
-  #print('%.2f inch => %.2f cm'%( f_var, inch ))
-  #print('{0:.2f} inch => {1:.2f} cm'.format(f_var,inch))
-  print(f'{f_var:.2f} inch => {inch:.2f} cm')
+  a=float(input())
+  #print('%.2f inch =>  %.2f cm'%(a,2.54*a))
+  #print(f'{a:.2f} inch =>  {2.54*a:.2f} cm')
+  #print('{:.2f} inch =>  {:.2f} cm'.format(a,2.54*a))
+  #print('{1:.2f} inch =>  {0:.2f} cm'.format(2.54*a,a))
+  print('{0:.2f} inch =>  {1:.2f} cm'.format(a,2.54*a))
   ```
-  
+
 
 https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
 
@@ -193,16 +184,12 @@ https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6
 
 ### 문제 3
 
-- 몸무게 75kg은 몇 lb(파운드) 인가?
-
 - ```python
-  # 1kg = 2.2046lb
-  i_var = int(input('몸무게 몇 kg?(숫자만입력) : '))
-  lb = i_var * 2.2046
-  #print('%.2f kg =>  %.2f lb'%(i_var,lb))
-  #print('{:.2f} kg =>  {:.2f} lb'.format(i_var,lb))
-  #print('{0:.2f} kg =>  {1:.2f} lb'.format(i_var,lb))
-  print(f'{i_var:.2f} kg =>  {lb:.2f} lb')
+  a = int(input())
+  #print('%.2f kg =>  %.2f lb'%(a,a*2.2046))
+  #print('{:.2f} kg =>  {:.2f} lb'.format(a,a*2.2046))
+  #print('{0:.2f} kg =>  {1:.2f} lb'.format(a,a*2.2046))
+  print(f'{a:.2f} kg =>  {a*2.2046:.2f} lb')
   ```
 
 https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
@@ -212,24 +199,13 @@ https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6
 
 ### 문제 4
 
-- 화씨 100도는 섭씨 몇도?
-
-- 100 ℃  = 212 ℉ / 0 ℃ =  32 ℉
-
-- 섭씨 100칸 = 화씨 180칸
-
-- 섭씨 *180/100 +32 = 화씨 ~~확씨~~ 
-
-- (화씨-32) *100/180 = 섭씨
-
 - ```python
-  str_var = input('화씨 몇도?(숫자만입력) : ')
-  f_var = float(str_var)
-  C = ( f_var - 32 ) * 100 / 180
-  #print('%.2f ℉ =>  %.2f ℃'%(f_var,C))
-  #print('{:.2f} ℉ =>  {:.2f} ℃'.format(f_var,C))
-  #print('{0:.2f} ℉ =>  {1:.2f} ℃'.format(f_var,C))
-  print(f'{f_var:.2f} ℉ =>  {C:.2f} ℃')
+  C=float(input()) # 섭씨 입력받기
+  F=32+C*180/100
+  #print('%.2f ℃ =>  %.2f ℉'%(C,F))
+  #print('{:.2f} ℃ =>  {:.2f} ℉'.format(C,F))
+  #print('{0:.2f} ℃ =>  {1:.2f} ℉'.format(C,F))
+  print(f'{C:.2f} ℃ =>  {F:.2f} ℉')
   ```
 
 https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
@@ -239,18 +215,13 @@ https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6
 
 ### 문제 5
 
-- 섭씨 100도는 화씨 몇도?
-
-- 섭씨 *180/100 +32 = 화씨
-
 - ```python
-  str_var = input('섭씨 몇도?(숫자만입력) : ')
-  f_var = float(str_var)
-  F = f_var * 180 / 100 + 32
-  #print('%.2f ℃ =>  %.2f ℉'%(f_var,F))
-  #print('{:.2f} ℃ =>  {:.2f} ℉'.format(f_var,F))
-  #print('{0:.2f} ℃ =>  {1:.2f} ℉'.format(f_var,F))
-  print(f'{f_var:.2f} ℃ =>  {F:.2f} ℉')
+  F=float(input())
+  C=(F-32)*100/180
+  #print('%.2f ℉ =>  %.2f ℃'%(F,C))
+  #print('{:.2f} ℉ =>  {:.2f} ℃'.format(F,C))
+  #print('{0:.2f} ℉ =>  {1:.2f} ℃'.format(F,C))
+  print(f'{F:.2f} ℉ =>  {C:.2f} ℃')
   ```
 
 https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
@@ -260,21 +231,13 @@ https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6
 
 ### 문제 6
 
-- 농도 30 % 소금물 100g + 농도 50% 소금물 300g
-
-- 혼합된 소금물의 농도?
-
 - [김소원 소금물](https://www.youtube.com/watch?v=WFOKyWcOKC8)
 
-- 전체 소금의 무게 / 전체 소금물 무게 * 100%
-
 - ```python
-  # 농도 30 % 소금물 100g + 농도 50% 소금물 300g
-  salt = (100*0.3 + 300*0.5) /( 100 + 300 ) * 100
-  #print('혼합된 소금물의 농도: %.2f%%'%salt) # %% 주의
-  #print('혼합된 소금물의 농도: {:.2f}%'.format(salt))
-  #print('혼합된 소금물의 농도: {0:.2f}%'.format(salt))
-  print(f'혼합된 소금물의 농도: {salt:.2f}%')
+  #print('혼합된 소금물의 농도: %.2f%%'%(20/300*100))
+  #print('혼합된 소금물의 농도: {:.2f}%'.format(20/300*100))
+  #print('혼합된 소금물의 농도: {0:.2f}%'.format(20/300*100))
+  print(f'혼합된 소금물의 농도: {20/300*100:.2f}%')
   ```
 
 https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
@@ -284,16 +247,14 @@ https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6
 
 ### 문제 7
 
-- 사용자에게 자연수를 입력받고, 해당 자연수의 약수들을 출력해보자!
-
 - ```python
-  num = int(input('자연수를 입력해주세요. : ')) # 연산을 위해 int()
+  num = int(input()) # 연산을 위해 int()
   for i in range(1,num+1,1): # range(start,stop,step)
       if num%i == 0: # 나누어 떨어지면 / 나머지가 0이면
-          #print('%d는 %d의 약수'%(i,num))
-          #print('{}는 {}의 약수'.format(i,num))
-          #print('{0}는 {1}의 약수'.format(i,num))
-          print(f'{i}는 {num}의 약수')
+          #print('%d(은)는 %d의 약수입니다.'%(i,num))
+          #print('{}(은)는 {}의 약수입니다.'.format(i,num))
+          #print('{0}(은)는 {1}의 약수입니다.'.format(i,num))
+          print(f'{i}(은)는 {num}의 약수입니다.')
   ```
 
 https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
@@ -302,18 +263,17 @@ https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6
 
 ### 문제 8
 
-- 사용자에게 자연수를 입력받고, 해당 자연수가 소수인지 판단해보자!
-
 - ```python
-  num = int(input('자연수를 입력해주세요. : ')) # 연산을 위해 int()
-  cnt = 0 # 약수가 몇개인지 판단하기위해 카운트!
-  for i in range(1,num+1,1):
-      if num%i == 0: # 나누어 떨어지면 / 나머지가 0이면
-          cnt += 1 # cnt = cnt + 1
-  if cnt == 2:
-      print('소수 입니다.')
-  else:
-      print('소수가 아닙니다.')
+  n = int(input())
+  count = 0
+  for i in range(1,n+1,1):
+      if n%i == 0:
+          #print('%d(은)는 %d의 약수입니다.'%(i,n))
+          print(f'{i}(은)는 {n}의 약수입니다.')
+          count += 1
+      if count == 2:
+          #print('%d(은)는 1과 %d로만 나눌 수 있는 소수입니다.'%(n,n))
+          print(f'{n}(은)는 1과 {n}로만 나눌 수 있는 소수입니다.')
   ```
 
 https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
@@ -322,25 +282,17 @@ https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6
 
 ### 문제 9
 
-- 사용자가 입력한 문자 대소문자를 구별하시오.
-
 - ```python
-  char = input('문자를 입력해주세요. : ')
-  if char.isupper():
-      #print('%s 는 대문자 입니다.'%char)
-      #print('{} 는 대문자 입니다.'.format(char))
-      #print('{0} 는 대문자 입니다.'.format(char))
-      print(f'{char} 는 대문자 입니다.')
-  elif char.islower():
-      #print('%s 는 소문자 입니다.'%char)
-      #print('{} 는 소문자 입니다.'.format(char))
-      #print('{0} 는 소문자 입니다.'.format(char))
-      print(f'{char} 는 소문자 입니다.')
+  str1 = input()
+  if str1.islower():
+      #print('%s 는 소문자 입니다.'%str1)
+      print('{} 는 소문자 입니다.'.format(str1))
+  elif str1.isupper():
+      #print('%s 는 대문자 입니다.'%str1)
+      print('{} 는 대문자 입니다.'.format(str1))
   else:
-      #print('%s 는 알파벳이 아닙니다.'%char)
-      #print('{} 는 알파벳이 아닙니다.'.format(char))
-      #print('{0} 는 알파벳이 아닙니다.'.format(char))
-      print(f'{char} 는 알파벳이 아닙니다.')
+      #print('%s 는 알파벳이 아닙니다.'%str1)
+      print('{} 는 알파벳이 아닙니다.'.format(str1))
   ```
 
 https://swexpertacademy.com/main/learn/course/subjectDetail.do?courseId=AVuPDAe6AATw5UW6&subjectId=AWT4H-1q2m8DFAVT#
