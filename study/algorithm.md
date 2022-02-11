@@ -108,3 +108,185 @@
 
 ---
 
+### list 2
+
+- 2차원 리스트
+- 부분집합
+- 검색
+- 정렬
+
+---
+
+### 2차원 리스트
+
+- arr = [0] * 5
+
+- arr = [i for i in range(10) if i%2 == 0]   #  [0,2,4,6,8]
+
+- brr = [[1,2,3]] * 3   # [[1,2,3],[1,2,3],[1,2,3]]
+
+- brr = [[1,2,3] for i in range(3)]   # [[1,2,3],[1,2,3],[1,2,3]]
+
+- crr = [[i,j] for i in range(3) for j in range(2)]   # [[0,0],[0,1],[1,0],[1,1],[2,0],[2,1]]
+
+- 행열 입력 받기
+
+  - ```python
+    n, m = map(int, input().split())
+    arr = [0]*n
+    for i in range(n):
+       arr[i] = list(map(int, input().split()))
+    print(arr)
+    ```
+
+  - ```python
+    n, m = map(int, input().split())
+    arr = list()
+    for i in range(n):
+        arr.append(list(map(int, input().split())))
+    ```
+
+- 행열 1찾기
+
+  - ```python
+    new_arr = [[i,j] for i in range(n) for j in range(m) if arr[i][j]==1]
+    ```
+
+  - ```python
+    n, m = map(int, input().split())
+    arr = [0]*n
+    new_arr = list()
+    for i in range(n):
+        arr[i] = list(map(int, input().split()))
+        for j in range (m):
+            if arr[i][j] == 1:
+                new_arr.append([i,j])
+    ```
+
+- 리스트 순회
+
+  - 행 우선 순회
+
+  - 열 우선 순회
+
+  - 지그재그 순회
+
+    - ```python
+      for i in range(n):
+          for j in range(m):
+              arr[i][j+(m-1-2*j)*(i%2)]
+              # i가 짝수이면 arr[i][j] 정방향
+              # i가 홀수이면 arr[i][m-1-j] 역방향
+      ```
+
+- 델타를 이용한 2차원 리스트 탐색
+
+  - dx = [0,0,-1,1] # 상하좌우
+  - dy = [-1,1,0,0]
+
+- 전치행렬
+
+  - ```python
+    for i in range(n):
+        for j in range(n):
+            if i < j:
+                arr[i][j], arr[j][i] = arr[j][i], arr[i][j]
+    ```
+
+- Zip 함수
+
+  - ```python
+    arr = ['a','b','c']
+    brr = [1,2,3]
+    crr = list(zip(arr,brr)) # [('a',1),('b',2),('c',3)]
+    ```
+
+  - ```python
+    arr = [[1,2,3],[4,5,6],[7,8,9]]
+    brr = list(zip(*arr)) #[(1,4,7),(2,5,8),(3,6,9)]
+    ```
+
+  - ```
+    전치 행렬
+    [(1, 2, 3),
+     (4, 5, 6),
+     (7, 8, 9)]
+     
+    [(1, 4, 7),
+     (2, 5, 8),
+     (3, 6, 9)]
+    ```
+
+---
+
+### 부분집합
+
+- ```python
+  bit = [0,0,0,0]
+  for i in range(2):
+      bit[0] = i
+      for j in range(2):
+          bit[1] = j
+          for k in range(2):
+              bit[2] = k
+              for l in range(2):
+                  bit[3] = l
+                  print(bit)
+  ```
+
+- 비트 연산자
+
+  - 이진수에 대한 연산을 수행하는 연산자
+  - & : and
+  - | : or
+  - << : 왼쪽이동
+  - `>>` : 오른쪽 이동
+  - `i & (1 << j)` i에서 j번째 비트가 1인지 아닌지 리턴
+
+- 비트연산자 활용 부분집합
+
+  - ```python
+    arr = [3, 6, 7, 1, 5, 4]
+    for i in range(1<<n): # 2**n, 부분집합의 개수
+        for j in range(n): # 원소의 수
+            if i & (1 << j): # i의 j번째 비트가 1이면 j번째 원소 출력
+                print(arr[j], end=",")
+        print()
+    ```
+
+---
+
+### 검색
+
+- 원하는 항목찾기
+- 탐색키
+- 순차검색
+  - 일렬 순서대로 검색
+  - 순차구조로 구현된 리스트에서 유용함
+  - 비효율적
+  - 정렬되어있는경우
+    -  순서대로 검색, 키값이 같은 원소가있는지
+    - 있으면 인덱스 반환
+    - 키보다 원소크면 더이상 검사필요 x
+  - 정렬되어있지 않는 경우
+    - 끝까지 검색
+    - 못찾으면 -1반환하게 설계
+- 이진검색
+  - 가운데 항목의 키값 비교
+  - 반씩 줄여나감
+  - 자료가 정렬되어 있어야 가능
+  - 중앙값 목표값 비교
+    - 목표값이 작으면 왼쪽
+    - 목표값이 크면 오른쪽
+- 인덱싱
+  - 인덱스는 키 필드만 갖고있음
+
+---
+
+### 셀렉션 알고리즘
+
+- 선택정렬
+  - 가장 작은 값의 원소부터 차례대로 선택하여 위치를 교환하는 방식
+  - 최소값 찾고 교환
+  - 
+
