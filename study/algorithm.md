@@ -288,5 +288,229 @@
 - 선택정렬
   - 가장 작은 값의 원소부터 차례대로 선택하여 위치를 교환하는 방식
   - 최소값 찾고 교환
-  - 
+
+
+
+
+
+---
+
+### 문자열
+
+- 문자열
+- 패턴 매칭
+- 문자열 암호화
+- 문자열 압축
+
+---
+
+### 문자의 표현
+
+- 각 문자에 대응되는 숫자를 정해 놓고 이것을 메모리에 저장하는 방법이 사용될 것이다.
+- 글자 모양 그대로 저장하는 비트맵 형식은 메모리 낭비가 심함
+- 각 지역별로 코드체계를 정해놓고 사용하다가 네트워크(인터넷)이 발전하면서 서로간에 정보를 주고 받을 때 정보를 달리 해석한다는 문제가 생겼다.
+- 그래서 혼동을 피하기 위해 표준안을 만들기로 했다.
+- ASCII
+- 빈칸이랑 null은 다름
+- 확장 아스키
+  - 표준 아스키는 7비트
+  - 확장 아스키는 8비트
+- 유니코드
+  - 자국의 문자 한글을 표현하기 위하여 코드체계를 만들어 조합형 완성형으로 따로 사용하다가 자국의 코드체계를 타 국가가 가지고 있지 않으면 정보를 잘못 해석할 수 밖에 없었다.
+  - 다국어 처리를 위한 표준
+  - 유니코드도 다시 Character Set으로 분류된다.
+    - UCS-2
+    - UCS-4
+  - 바이트 순서에 대해서 표준화하지 못했음
+  - UTF-8
+    - 필요에 따라서 8비트 ~ 4바이트 가변
+  - 8-bit / 8bits
+  - Python 인코딩
+    - 2.x 버전 `#-*- coding: utf-8 -*-` 첫줄에 명시
+    - 3.x 버전 생략가능
+
+---
+
+### 문자열의 분류
+
+- 자바, 파이썬 String 클래스
+
+- C언어
+
+  - char ary[] = {'a','b','c','\0'};
+
+- ```python
+  s1 = list(input())
+  s2 = input()
+  print(s1)
+  print(s2)
+  # ['1', '2', '3']
+  # 123
+  ```
+
+- strlen() 함수 만들어 보기
+
+- ```python
+  def strlen(para_list):
+      cnt = 0
+      while para_list[cnt] != '\0':
+          cnt += 1
+      return cnt
+  
+  
+  a = ['a', 'b', 'c', '\0']
+  print(strlen(a))
+  ```
+
+---
+
+### 문자열 처리
+
+- 메소드
+
+  - replace()
+  - split()
+  - isalpha()
+  - find()
+
+- ```python
+  s1 = 'abc'
+  s2 = s1[:3]
+  print(s1, s2)
+  print(id(s1), id(s2))
+  print(s1==s2)
+  print(s1 is s2)
+  ```
+
+  ```python
+  s1 = 'abc'
+  s2 = s1[:2] + 'c'
+  print(s1, s2)
+  print(id(s1), id(s2))
+  print(s1==s2)
+  print(s1 is s2)
+  ```
+
+  
+
+- ```python
+  s1 = ['a', 'b', 'c']
+  s2 = s1[:3]
+  print(s1, s2)
+  print(id(s1), id(s2))
+  print(s1==s2)
+  print(s1 is s2)
+  ```
+
+- ```python
+  s1 = 'abc'
+  s2 = 'ab'
+  print( s1>s2 )
+  ```
+
+- ```python
+  def atoi(s):
+      i = 0
+      for x in s:
+          i = i*10 + ord(x) - ord('0')
+      return i
+  
+  print(atoi('123'))
+  ```
+
+---
+
+### 패턴 매칭
+
+- 고지식한 알고리즘(Brute Force)
+
+  - 본문 문자열을 처음부터 끝까지 차례대로 순회하면서 패턴 내의 문자들을 일일이 비교하는 방식으로 동작
+
+  - ```python
+    def BruteForce(p, t):
+        i = 0
+        j = 0
+        while j < len(p) and i < len(t):
+            if t[i] != p[j]:
+                i = i - j
+                j = -1
+            i = i + 1
+            j = j + 1
+        if j == len(p):
+            return i - len(p)
+        else:
+            return -1
+    
+    p = "is"
+    t = "This is a book"
+    print(BruteForce(p, t))
+    ```
+
+---
+
+### KMP
+
+- ```python
+  def kmp(t, p):
+      N = len(t)
+      M = len(p)
+      lps = [0] * (M+1)
+  
+      j = 0
+      lps[0] = -1
+      for i in range(1, M):
+          lps[i] = j
+          if p[i] == p[j]:
+              j += 1
+          else:
+              j = 0
+      lps[M] = j
+      
+      i = 0
+      j = 0
+      while i < N and j <= M:
+          if j == -1 or t[i] == p[j]:
+              i += 1
+              j += 1
+          else:
+              j = lps[j]
+          if j == M:
+              print(i-M, end = ' ')
+              j = lps[j]
+      print()
+      return
+  
+  t = 'zzzabcdabcdabcefabcd'
+  p = 'abcdabcef'
+  kmp(t,p)
+  ```
+
+
+
+---
+
+### 보이어-무어
+
+- 끝자리 비교하고 한칸씩 앞으로 비교 실패하면 길이만큼 건너가서 반복
+- 빅오 - 최악의경우, 세타 - 항상이정도
+- 호스풀 알고리즘 찾아보기
+
+
+
+
+
+---
+
+### 문자열 암호화
+
+- 평행이동
+- 단일치환
+- 배타적 논리합 / exclusive-or / ^
+- 문자열 압축 - 이미지 BMP 파일포맷 압축방법
+
+
+
+---
+
+
 
