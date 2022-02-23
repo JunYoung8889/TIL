@@ -508,9 +508,133 @@
 - 배타적 논리합 / exclusive-or / ^
 - 문자열 압축 - 이미지 BMP 파일포맷 압축방법
 
+---
 
+### 스텍1
+
+- 스텍
+  - 푸시
+  - 팝
+  - 탑
+- 메모아이제이션
+- DP
 
 ---
 
+### 스택2
+
+- DFS
+- 계산기
+- 백트래킹
+- 부분집합, 순열
+- 분할정복
+
+---
+
+### DFS
+
+- 깊이 우선 탐색(Depth First Search, DFS)
+- 너비 우선 탐색(Breadth First Search, BFS)
+- 더 이상 갈곳이 없게 되면 가장 마지막에 만났던 갈림길 간선이 있는 정점으로 되돌아와서 탐색
+- 방문 했는지 안했는지 v w 로 구분 하면서 스텍으로 push했다가 꺼내썼다가 하면서 스택으로 구현 가능
+- 재귀함수로도 구현가능
+- `+` do while 일단 한번 들어가는 와일문
+
+---
+
+### 계산기
+
+- 문자열 계산식
+- 중위 표기식
+- 후위 표기식
+- 여는괄호 확인
+  - 연산자 (우선순위에 따라 스텍에 푸쉬)
+  - 피연산자 후위표기식 문자열에 저장
+
+---
+
+### 백트래킹
+
+- 미로찾기
+
+- 엔퀸
+
+- 부분집합
+
+  - ```python
+    def f(i, N, K):
+        global cnt
+        cnt += 1
+        if i == N:
+            s = 0
+            for j in range(N):
+                if bit[j]:
+                    s += a[j]
+            if s == K:
+                for k in range(N):
+                    if bit[k]:
+                        print(a[k], end = ' ')
+                print()
+        else:
+            bit[i] = 1
+            f(i+1, N, K)
+            bit[i] = 0
+            f(i+1, N, K)
+    
+    cnt = 0
+    a = [1,2,3,4,5,6,7,8,9,10]
+    N = len(a)
+    bit = [0]*N
+    f(0,N,10)
+    print(cnt)
+    ```
+    
+  - ```python
+    def f(i, N, s, t):
+        global cnt
+        cnt += 1
+        if s == t:
+            for j in range(N):
+                if bit[j]:
+                    print(a[j], end = ' ')
+            print()
+        elif i == N:
+            return
+        elif s > t:
+            return
+        else:
+            bit[i] = 1
+            f(i+1, N, s + a[i], t)
+            bit[i] = 0
+            f(i+1, N, s, t)
+            
+    
+    cnt = 0
+    N = 10
+    a = [x for x in range(1, N+1)]
+    bit = [0] * N
+    t = 10
+    f(0, N, 0, t)
+    print(cnt)
+    ```
+  
+- 순열
+
+  - ```python
+    def f(i, N):
+        if i == N:
+            print(p)
+        else:
+            for j in range(i, N):
+                p[i], p[j] = p[j], p[i]
+                f(i+1, N)
+                p[i], p[j] = p[j], p[i]
+    
+    N = 3
+    p = [x for x in range(1, N+1)]
+    f(0, N)
+    ```
+
+  - 
 
 
