@@ -638,3 +638,229 @@
   - 
 
 
+
+---
+
+### Queue 큐
+
+- 큐의 특성
+  - 스택과 마찬가지로 삽입과 삭제의 위치가 제한적인 자료구조
+    - 큐의 뒤에서는 삽입만 하고, 큐의 앞에서는 삭제만 이루어지는 구조
+  - 선입선출구조(FIFO: First In First Out)
+    - 큐에 삽입한 순서대로 원소가 저장되어, 가장 먼저 삽입(First In)된 원소는 가장먼저 삭제(First Out)된다.
+
+---
+
+### 큐의 선입선출 구조
+
+- 머리 Front
+- 꼬리 Rear
+- 삽입 enQueue
+- 삭제 deQueue
+
+---
+
+### 큐의 사용을 위해 필요한 주요 연산
+
+- enQueue(item)
+  - 큐의 뒤쪽(rear 다음)에 원소를 삽입하는 연산
+- deQueue()
+  - 큐의 앞쪽(front)에서 원소를 삭제하고 반환하는 연산
+- createQueue() 
+  - 공백 상태의 큐를 생성하는 연산
+- is
+
+
+
+
+
+---
+
+### 큐의 연산 과정
+
+- 공백 큐 생성 createQueue();
+  - front = rear = -1
+  - front 마지막으로 삭제된 위치
+  - rear 마지막으로 저장된 위치
+- 원소 A 삽입 enQueue(A);
+  - front += 0, rear += 1
+- 원소 반환/삭제
+  - front += 1, rear += 0
+- 큐가 비어있다.
+  - front == rear
+
+
+
+---
+
+### 선형큐
+
+- 1차원 배열을 이용한 큐
+- 상태
+  - 초기 -1
+  - 공백 front == rear
+  - 포화 rear == n-1
+
+
+
+---
+
+### 삽입 : enQueue(item)
+
+- 마지막 원소 뒤에 새로운 원소를 삽입하기 위해
+
+- ```python
+  def enQueue(item):
+      global rear
+      if isFull() :
+          print('Queue_Full')
+      else:
+          rear = rear + 1
+          Q[rear] = item
+  ```
+
+
+
+---
+
+### 삭제 : deQueue()
+
+- 가장 앞에 있는 원소를 삭제하기 위해
+
+- ```python
+  def deQueue():
+      if
+  ```
+
+- 
+
+
+
+---
+
+### 공백상태 및 포화상태 검사
+
+- isEmpty(), isFull()
+
+- 공백 front == rear
+
+- rear == n-1
+
+- ```python
+  def isEmpty():
+      
+  ```
+
+
+
+---
+
+### 검색 : Qpeek()
+
+- 가장 앞에 있는 원소를 검색하여 반환하는 연산
+
+  - ```python
+    def Qpeek():
+        if isEmpty():
+            print('Queue_Empty')
+    ```
+
+
+
+---
+
+### 큐 예시
+
+- ```python
+  front = rear = -1
+  Q = [0]*10
+  # enQueue(1)
+  rear += 1
+  Q[rear] = 1
+  
+  #deQueue()
+  front += 1
+  print(Q[front])
+  ```
+
+- 들어간 순서대로 나온다.
+
+
+
+---
+
+### 원형 큐
+
+- 초기 공백 상태
+  - front = rear = 0
+  - 처음에는 0번 비워두고 두번째 바퀴부터 0 채움
+  - 한칸 비워둠? 한칸비면 꽉참>?
+- Index의 순환
+  - front와 rear의 위치가 n-1을 가리킨후 논리적 순환으로 0으로
+- rear의 다음칸이 front이면 꽉찬거
+- rear == front이면 비어있는거
+
+
+
+
+
+---
+
+### 우선순위 큐
+
+- Priority Queue
+- 선입선출이 아니라 우선순위가 높은 순서대로 먼저 나감
+- 트리구조?
+- 
+
+
+
+---
+
+### 버퍼
+
+- 키보드 버퍼?
+
+
+
+
+
+---
+
+### BFS
+
+- 너비 우선 탐색
+
+- 너비 우선탐색 깊이 우선 탐색 차이점 개념적으로 정리하기
+
+- ```python
+  def BFS(G, V, n):
+      visited = [0]* (n+1)
+      queue = []
+      queue.append(V)
+      while queue :
+          t = queue.pop(0)
+          if not visited[t]:
+              visited[t] = True
+              visit(t)
+          for i in G[t]:
+              if not visited[i]:
+                  queue.append(i)
+  ```
+
+- ```python
+  def BFS(G, V, n):
+      visited = [0]* (n+1)
+      queue = []
+      queue.append(V)
+      visited[V] = 1
+      while queue :
+          t = queue.pop(0)
+          visit(t)
+          for i in G[t]:
+              if not visited[i]:
+                  queue.append(i)
+                  visited[i] = visited[t] + 1
+  ```
+
+- 
