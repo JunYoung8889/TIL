@@ -75,7 +75,7 @@ ans = dfs(arr,N)
 # 오름차순 정렬
 ans = my_sort(ans)
 # 연결된 단지 수
-print(len(ans))
+print(my_len(ans))
 # 단지내 집의 수를 오름차순으로 출력
 for num in ans:
     print(num)
