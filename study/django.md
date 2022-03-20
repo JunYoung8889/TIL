@@ -25,7 +25,7 @@
 - MVC
   - Model View Controller
 - Model : Model
-  - 응용프로그램의 데이터구조를 정의하고 데이터베이스의 기록을 관리(추가, 수정, 삭제)
+  - 응용프로그램의 **데이터구조를 정의**하고 **데이터베이스**의 기록을 **관리**(추가, 수정, 삭제)
 - View : Template
   - 파일의 구조나 레이아웃을 정의
   - 실제 내용을 보여주는 데 사용 (presentation)
@@ -43,6 +43,16 @@
 ### Variable Routing
 
 - Variable Routing 은 Django 에서 URL 자체를 변수처럼 사용해서 동적으로 주소를 만드는 것을 의미한다.
+
+- `<int:pk>/`
+
+- views
+
+- ```
+  def detail(request, pk)
+  ```
+
+  
 
 
 
@@ -100,7 +110,7 @@
     ```
 
   - ```
-    5
+    3
     Hello World
     ```
 
@@ -222,6 +232,8 @@
 ### Django Model Field
 
 - CharField : 짧은 문자열을 정의할때 사용, max_length 를 지정해 주어야 한다. ex) max_length=10
+  - max_length=None
+
 - TextField :  긴 문자를 정의할때 사용. 
 - DateField/DateTimeField : 날짜/ 날짜,시간 정보를 정의할때 사용. 
 - IntegerField : 정수값을 정의할때 사용.
@@ -258,11 +270,11 @@
 
       - crud 디렉토리를 패키지로 인식시켜준다.
 
-    - asgi.py
+    - asgi.py (신형)
 
       - 웹서버와 연결 및 소통을 도와준다. / 비동기식
 
-    - wsgi.py
+    - wsgi.py (구형)
 
       - 웹서버와 연결 및 소통을 도와준다.
 
@@ -280,10 +292,12 @@
 
       - 사이트의 url과 적절한 views의 연결을 지정한다.
 
+      - trailing comma
+
     - settings.py
 
       - 애플리케이션의 모든 설정을 포함한다.
-
+  
       - ```python
         INSTALLED_APPS = [
             'articles',
@@ -300,12 +314,12 @@
       - 생성된 앱 이름을 INSTALLED_APPS 에 등록해야한다.
 
       - django_extensions 는 `$ python manage.py shell_plus`를 실행하기 위해서 등록한다.
-
+  
       - ```python
         TEMPLATES = [
             {
                 'BACKEND': 'django.template.backends.django.DjangoTemplates',
-                'DIRS': [BASE_DIR,'templates'],
+                'DIRS': [BASE_DIR'templates'],
                 'APP_DIRS': True,
                 'OPTIONS': {
                     'context_processors': [
@@ -320,7 +334,7 @@
         ```
 
       - Django는 기본적으로 앱 안에 있는 templates를 인식하는데  html 들의 공통사항이 많아서 스켈레톤 html로 base.html을 생성하고 싶을 때는 crud, articles, manage.py와 같은 선상에 있는 templates에 base.html을 생성하는데 이때 이를 인식하기 위해서는 settings.py의 TEMPLATES의 DIRS를 [Base_DIR, 'templates']로 수정해야한다. 
-
+  
       - ```python
         LANGUAGE_CODE = 'en-us'
         
@@ -342,7 +356,7 @@
       - USE_L10N : localization (현지화)
 
       - 서울 시간 기준으로 표기하고 싶다면 TIME_ZONE 변수에 'Asia/Seoul'을 할당해야 한다.
-
+  
       - ```python
         LANGUAGE_CODE = 'en-us'
         
@@ -350,7 +364,7 @@
         
         # March 20, 2022, 6:23 a.m.
         ```
-
+  
       - ```python
         LANGUAGE_CODE = 'ko-kr'
         
@@ -358,7 +372,7 @@
         
         # 2022년 3월 20일 6:22 오전
         ```
-
+  
       - ```python
         LANGUAGE_CODE = 'en-us'
         
@@ -366,7 +380,7 @@
         
         # March 20, 2022, 3:24 p.m
         ```
-
+  
       - ```python
         LANGUAGE_CODE = 'ko-kr'
         
@@ -378,15 +392,17 @@
   - manage.py
 
     - 프로젝트와 다양한 방법으로 상호작용하는 커맨드라인 유틸리티
-
+  
     - ```bash
       $ python manage.py <command> [options]
       ```
 
   - templates (자동으로 생성 안됨)
 
+    - _nav.html
+  
     - base.html
-
+  
       - ```html
         <!DOCTYPE html>
         <html lang="en">
@@ -398,30 +414,31 @@
           <title>Document</title>
         </head>
         <body>
+          {% include '_nav.html' %}
           {% block content %}
           {% endblock content %}
         </body>
         </html>
         ```
-
+  
   - articles
-
+  
     - migrations
-
+  
     - `__init__.py`
-
+  
       - 디렉토리를 패키지로 인식시켜준다.
-
+  
     - apps.py
-
+  
       - 앱의 정보가 작성되는 곳
-
+  
     - tests.py
-
+  
       - 프로젝트의 테스트 코드를 작성하는 곳
-
+  
     - admin.py
-
+  
       - ```python
         from django.contrib import admin
         from .models import Article
@@ -431,17 +448,17 @@
         
         admin.site.register(Article, ArticleAdmin) 
         ```
-
+  
       - 관리자용 페이지를 설정하는 곳
-
+  
       - ```bash
         $ python manage.py createsuperuser
         ```
-
+  
       - 관리자용 아이디를 생성 name, email, password
-
+  
     - models.py
-
+  
       - ```python
         from django.db import models
         
@@ -452,17 +469,17 @@
             created_at = models.DateTimeField(auto_now_add=True)
             updated_at = models.DateTimeField(auto_now=True)
         ```
-
+  
       - 모델을 정의하는 곳
-
-      - 응용프로그램의 데이터 구조를 정희하고 데이터베이스의 기록을 관리(추가, 수정, 삭제)
-
+  
+      - 응용프로그램의 데이터 구조를 정의하고 데이터베이스의 기록을 관리(추가, 수정, 삭제)
+  
     - views.py
-
+  
       - view 함수들이 정의되는 곳
-
+  
       - 요청에따라 로직을 수행하며, 결과를 템플릿으로 렌더링하여 응답한다.
-
+  
       - ```python
         from django.shortcuts import render, redirect
         from .models import Article
@@ -517,7 +534,7 @@
                 article.delete()
                 return redirect('articles:index')
             else: #GET
-                return redirect('articles:detail', article.pk)
+                return redirect('articles:detail', article.title)
         
         
         def edit(request, pk):
@@ -535,11 +552,11 @@
             article.save()
             return redirect('articles:detail', article.title)
         ```
-
+  
     - urls.py ( 자동으로 생성 안됨 )
-
+  
       - 사이트의 url과 적절한 views의 연결을 지정한다.
-
+  
       - ```python
         from django.urls import path
         from . import views
@@ -556,13 +573,13 @@
             path('<int:pk>/update/', views.update, name='update'),
         ]
         ```
-
+  
     - templates ( 자동으로 생성 안됨 )
-
-      - articles
-
+  
+      - articles (name_space)
+  
         - index.html
-
+  
           - ```html
             {% extends 'base.html' %}
             
@@ -574,9 +591,9 @@
               {% endfor %}
             {% endblock content %}
             ```
-
+  
         - new.html
-
+  
           - ```html
             <form action="{% url 'articles:create' %}" method="POST">
                 {% csrf_token %}
@@ -591,8 +608,8 @@
 ### ORM
 
 - Object Relational Mapping
-  - 객체 지향 프로그래밍 언어를 사용하여 호환되지 않는 유형의 시스템 간에(Django-SQL)데이터를 변환하는 프로그래밍 기술
-  - OOP프로그래밍에서 RDBMS를 연동할 때, 데이터베이스와 객체 지향 프로그래밍 언어 간의 호환되지 않는 데이터를 변환하는 프로그래밍 기법
+  - **객체 지향 프로그래밍 언어**를 사용하여 **호환되지 않는 유형의 시스템 간**에(Django-SQL)**데이터를 변환**하는 프로그래밍 기술
+  - OOP프로그래밍에서 **RDBMS**를 연동할 때, 데이터베이스와 객체 지향 프로그래밍 언어 간의 호환되지 않는 데이터를 변환하는 프로그래밍 기법
 
 - RDBMS의 개념적 정의
   - Relational Database Management System
