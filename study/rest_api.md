@@ -114,9 +114,10 @@
     
     def article_json_2(request):
         articles = Article.objects.all()
+        data = serializers.serialize('json', articles)
         return HttpResponse(data, content_type='application/json')
     ```
-
+    
   - 주어진 모델 정보를 활용하기 때문에 필드를 개별적으로 직접 만들어 줄 필요 없음
 
 - DRF Django REST Framework 라이브러리를 사용한 JSON 응답
