@@ -289,6 +289,378 @@
 
 ### 데이터 타입 종류
 
+- 원시타입, 참조타입
+
+- ```
+  - 원시 타입 primitive type
+  	- Number
+  	- String
+  	- Boolean
+  	- undefined
+  	- null  // typeof 찍으면 object가 나옴 버그임 ㅠ
+  	- Symbol ?
+  - 객체 object가 아닌 기본 타입
+  - 변수에 해당 타입의 값이 담김
+  - 다른 변수에 복사할 때 실제 값이 복사됨
+  ```
+
+- ```
+  - 참조 타입 Reference type
+  	- Objects
+  		- Array
+  		- Function
+  		- ... etc
+  - 객체 object 타입의 자료형
+  - 변수에 해당 객체의 참조 값이 담김
+  - 다른 변수에 복사할 때 참조 값이 복사됨
+  ```
+
+- ```javascript
+  // const 인데 재할당???
+  // 참조하고 있는 주소가 바뀐게 아니기 때문에 재할당이 아니다!
+  const nums = [1,2,3,4,5]
+  console.log(nums[0])  // 1
+  nums[0] = 6
+  console.log(nums)  // (5) [6,2,3,4,5]
+  console.log(nums[0])  // 6
+  ```
+
+- ```javascript
+  // 원시 타입은 실제 저장된 값이 복사됨 
+  let myNum = 5
+  let yourNum = myNum
+  console.log(myNum)  // 5
+  console.log(yourNum)  // 5
+  myNum = 6
+  console.log(myNum)  // 6
+  console.log(yourNum)  // 5, myNum의 실제 값을 복사한 이후에 myNum이 바껴도 yourNum은 안바뀐다.
+  ```
+
+---
+
+### 원시 타입 Primitive type
+
+- ```
+  - 숫자 Number 타입
+  	- 정수, 실수 구분 없는 하나의 숫자 타입
+  	- 부동소수점 형식을 따름
+  	- Infinity / -Infinity
+  	- NaN
+  		- 계산이 불가능한 경우 반환되는 값
+  		- 산술 연산 불가
+  ```
+
+- ```javascript
+  // Infinity 관련 참고
+  console.log(Infinity)  // Infinity
+  console.log(Infinity/4)  // Infinity
+  console.log(Infinity/Infinity)  // NaN
+  console.log(Infinity*0)  // NaN
+  console.log(Infinity - Infinity)  // NaN
+  console.log(Infinity * Infinity)  // Infinity
+  console.log(Infinity + Infinity)  // Infinity
+  console.log(-Infinity * Infinity)  // -Infinity
+  ```
+
+- ```
+  - 문자열 String 타입
+  	- 텍스트 데이터를 나타내는 타입
+  	- 16비트 유니코드 문자의 집합
+  	- 작은따옴표, 큰따옴표 모두 가능
+  	- 탬플릿 리터럴 Template Literal
+  		- ES6부터 지원
+  		- 따옴표 대신 backtick
+  		- ${ expression } 형태로 표현 삽입 가능
+  ```
+
+- ```javascript
+  // 유니코드 문자
+  console.log('a' < 'z')  // true 'a' 가 앞번호 'z'가 뒷번호
+  console.log('A' < 'a')  // true 대문자가 앞번호 소문자가 뒷번호
+  console.log('A' < 'Z')  // true 'A' 가 앞번호 'Z'가 뒷번호
+  
+  console.log('a'.charCodeAt())  // 97
+  console.log('z'.charCodeAt())  // 122
+  console.log('A'.charCodeAt())  // 65
+  console.log('Z'.charCodeAt())  // 90
+  console.log(String.fromCharCode(97))  // a
+  ```
+
+- ```javascript
+  // 탬플릿 리터럴, 파이썬 f스트링이랑 비슷, 여러줄 문자열 가능
+  const myName = 'JYP'
+  const myAge = 8
+  const testString = `my name is ${myName},
+  my age is ${myAge}`
+  console.log(testString)
+  /*
+  my name is JYP,
+  my age is 8
+  */
+  ```
+
+- ```
+  - undefined
+  	- 변수의 값이 없음을 나타내는 데이터 타입
+  	- 변수 선언 이후 직접 값을 할당하지 않으면, 자동으로 undefined가 할당됨
+  ```
+
+- ```javascript
+  // undefined
+  let myNum
+  console.log(myNum)  // undefined
+  console.log(typeof myNum)  // undefined
+  
+  // const
+  const myNum  // Uncaught SyntaxError: Missing initializer in const declaration
+  console.log(myNum)
+  
+  // const undefined
+  const myNum = undefined
+  console.log(myNum)  // undefined
+  console.log(typeof myNum)  // undefined
+  ```
+
+- ```
+  - null
+  	- 변수의 값이 없음을 의도적으로 표현할 때 사용하는 데이터 타입
+  	- typeof(null)  // 'object'
+  	- typeof null  // 'object'
+  ```
+
+- ```
+  - NaN, null, undefined
+  	- NaN 산술 연산 불가 의미 / typeof NaN // 'number'
+  	- null 없다는것을 표시해줄때 / 개발자가 의도하고 쓰는 표현
+  	- undefined 선언됐으나 할당안됐을때, / 개발자가 의도하지 않음, 자바스크립트가 자동으로 할당
+  ```
+
+- ```
+  - Boolean 타입
+  	- 논리적 참 또는 거짓을 나타내는 타입
+  	- true, false
+  	- 조건문, 반복문에서 유용하게 사용
+  ```
+
+- ```
+  - ToBoolean Conversions (자동 형변환)
+  	- undefined : 항상 거짓
+  	- null : 항상 거짓
+  	- number : 0, -0, NaN 거짓
+  	- string : 빈문자열 거짓
+  	- object : 항상 참
+  ```
+
+- ```javascript
+  // undefined 항상 거짓
+  if (undefined) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // false
+  ```
+
+- ```javascript
+  // null 항상 거짓
+  if (null) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // false
+  ```
+
+- ```javascript
+  // number 0, -0, NaN 거짓
+  if (0) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // false
+  
+  if (-0) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // false
+  
+  if (NaN) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // false
+  
+  if (1) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // true
+  ```
+
+- ```javascript
+  // string 빈문자열 거짓
+  if ('') {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // false
+  
+  if (' ') {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // true
+  
+  if ('hi') {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // true
+  ```
+
+- ```javascript
+  // object 항상 참
+  if ([]) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // true
+  
+  if ({}) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // true
+  ```
+
+- ```javascript
+  // function 도 object 항상 참
+  if (function () {}) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // true
+  
+  function testFunction () {
+      return false
+  }
+  if (testFunction()) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // false
+  
+  if (testFunction) {
+      console.log(true)
+  } else {
+      console.log(false)
+  }  // true
+  
+  console.log(testFunction)
+  /*
+  ƒ testFunction () {
+      return false
+  }
+  */
+  console.log(testFunction())  // false
+  ```
+
+---
+
+### 연산자
+
+- ```
+  - 할당 연산자
+  	- 오른쪽에 있는 피 연산자의 평가 결과를 왼쪽 피연산자에 할당하는 연산자
+  	- 다양한 연산에 대한 단축 연산자 지원
+  	- +=, -=, *=, /= 등등
+  	- Increment(++) / i++ 값 1 증가
+  	- Decrement(--) / i-- 값 1 감소
+  ```
+
+- ```javascript
+  let x = 5
+  console.log(x)  // 5
+  console.log(x++)  // 5
+  console.log(x)  // 6
+  ```
+
+- ```
+  - 비교 연산자
+  	- 피연산자들(숫자, 문자, Boolean 등)을 비교하고 결과값을 boolean으로 반환하는 연산자
+  	- 문자열은 유니코드 값을 사용하며 표준 사전 순서를 기반으로 비교
+  ```
+
+- ```javascript
+  // 유니코드 문자
+  console.log('a' < 'z')  // true 'a' 가 앞번호 'z'가 뒷번호
+  console.log('A' < 'a')  // true 대문자가 앞번호 소문자가 뒷번호
+  console.log('A' < 'Z')  // true 'A' 가 앞번호 'Z'가 뒷번호
+  
+  console.log('a'.charCodeAt())  // 97
+  console.log('z'.charCodeAt())  // 122
+  console.log('A'.charCodeAt())  // 65
+  console.log('Z'.charCodeAt())  // 90
+  console.log(String.fromCharCode(97))  // a
+  ```
+
+- ```
+  - 동등 비교 연산자 (==)
+  	- 두 피연산자가 같은 값으로 평가되는지 비교 후 boolean 값을 반환
+  	- 비교할 때 암묵적 타입 변환을 통해 타입을 일치시킨 후 같은 값인지 비교
+  	- 객체는 참조 타입이므로 객체의 경우 메모리의 같은 객체를 바라보는지 판별
+  ```
+
+- ```javascript
+  // 암묵적 타입 변환
+  const a = 100
+  const b = '100'
+  console.log(a==b)  // true
+  console.log(a===b)  // false
+  console.log(a+b)  // 100100
+  
+  const c = 1
+  const d = true
+  console.log(c==d)  // true
+  console.log(c===d)  // false
+  console.log(c+d)  // 2
+  ```
+
+- ```
+  - 일치 비교 연산자 (===)
+  	- 두 피연산자가 같은 값으로 평가되는지 비교 후 boolean 값을 반환
+  	- 타입과 값 모두 같은지 비교, 암묵적 타입 변환이 발생하지 않음
+  	- 객체는 참조 타입이므로 객체의 경우 메모리의 같은 객체를 바라보는지 판별
+  ```
+
+- ```
+  - 논리 연산자
+  	- && and
+  	- || or
+  	- ! not
+  ```
+
+- ```javascript
+  // 논린 연산자, 단축 평가 지원
+  console.log(1 && 5)  // 5
+  console.log(1 || 5)  // 1
+  console.log('' && 5)  // ''
+  console.log('' || 5)  // 5
+  ```
+
+- ```
+  - 삼항 연산자 Ternary Operator
+  	- 세계의 피연산자를 사용하여 조건에 따라 값을 반환하는 연산자
+  	- 가장 왼쪽의 조건식이 참이면 콜론 앞의 값을 거짓이면 뒤의 값을 사용
+  	- 결과가 값이기 때문에 변수에 할당 가능
+  ```
+
+- ```javascript
+  console.log([] ? 1 : 2)  // 1
+  console.log('' ? 1 : 2)  // 2
+  const isOkay = {} ? true : false
+  console.log(isOkay)  // true
+  ```
+
 - 
 
 
