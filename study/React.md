@@ -251,3 +251,278 @@
   ```
 
 ---
+
+### state
+
+- ```jsx
+  import { useState } from 'react';
+  
+  function App() {
+      let [a, b] = useState('우동 맛집 추천');
+      return (
+           <div className="App">
+              <h4>제목 { a } </h4>
+           </div>
+      );
+  }
+  ```
+  
+  - state가 변경되면 state를 썻던 html은 자동 랜더링됨
+  
+  - [a, b] = [1, 2] : Destructuring 문법 / 파이썬에서 짝맞춰서 할당하는것과 유사
+
+- ```jsx
+  /* eslint-disable */
+  ```
+  
+  - Lint
+  
+  - WARNING
+  
+  - 사용 안한 변수 같은 쓸대 없는 코드가 있을 때 경고로 알려주는 것
+  
+  - 무시할려면 disable
+
+- ```jsx
+  import { useState } from 'react';
+  
+  let [state변수, state변경함수] = useState(0);
+  ```
+
+- ```jsx
+  /* eslint-disable */
+  import { useState } from 'react';
+  import './App.css';
+  
+  function App() {
+    let post = '강남우동맛집'
+    let [a, b] = useState('우동 맛집 추천');
+  
+    return (
+      <div className="App">
+        <nav className="black-nav">
+          <h4>블로그 네브바</h4>
+        </nav>
+        <section className="article">
+          <a href="">
+            <h4>글제목 : { a }</h4>
+          </a>
+          <p>2022. 07. 17. sun</p>
+        </section>
+      </div>
+    );
+  }
+  
+  export default App;
+  ```
+
+- ```css
+  .black-nav {
+    display : flex;
+    justify-content: center;
+    background : black;
+    width: 100%;
+    color: white;
+  }
+  
+  .article {
+    padding : 20px;
+    margin: 10px;
+    border-style: outset;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  ```
+
+---
+
+### event handler
+
+- [이벤트 처리하기](https://ko.reactjs.org/docs/handling-events.html)
+
+- onclick / onClick : html 과 달리 React 에서는 onClick처럼 캐멀 케이스를 사용합니다.
+
+- React에서는 false를 반환해도 기본동작을 방지할 수 없음!
+  
+  - 반드시 preventDefault를 명시적으로 호출해서 기본동작을 방지할 것!
+
+- ```jsx
+  /* eslint-disable */
+  import { useState } from 'react';
+  import './App.css';
+  
+  function App() {
+    let post = '강남우동맛집'
+    let [글제목들, 글제목들변경함수] = useState(['남자코트 추천', '강남 우동맛집', '파이썬 독학']);
+    let [따봉들, 따봉들변경함수] = useState([0, 0, 0])
+  
+    return (
+      <div className="App">
+        <nav className="black-nav">
+          <h4>블로그 네브바</h4>
+        </nav>
+        <section>
+          <div className="article">
+            <a href="">
+              <h4>글제목 : { 글제목들[0] }</h4>
+            </a>
+            <p>
+              좋아요 <a href="" onClick={ (e) => {
+                  e.preventDefault()
+                  let copy = [...따봉들]
+                  copy[0] += 1
+                  따봉들변경함수(copy)
+                }
+              }>👍</a> / 좋아요 수 : {따봉들[0]}
+            </p>
+            <p>2022. 07. 17. sun</p>
+          </div>
+          <div className="article">
+            <a href="">
+              <h4>글제목 : { 글제목들[1] }</h4>
+            </a>
+            <p>
+              좋아요 <a href="" onClick={ (e) => {
+                  e.preventDefault()
+                  let copy = [...따봉들]
+                  copy[1] += 1
+                  따봉들변경함수(copy)
+                }
+              }>👍</a> / 좋아요 수 : {따봉들[1]}
+            </p>
+            <p>2022. 07. 17. sun</p>
+          </div>
+          <div className="article">
+            <a href="">
+              <h4>글제목 : { 글제목들[2] }</h4>
+            </a>
+            <p>
+              좋아요 <a href="" onClick={ (e) => {
+                  e.preventDefault()
+                  let copy = [...따봉들]
+                  copy[2] += 1
+                  따봉들변경함수(copy)
+                }
+              }>👍</a> / 좋아요 수 : {따봉들[2]}
+            </p>
+            <p>2022. 07. 17. sun</p>
+          </div>
+        </section>
+      </div>
+    );
+  }
+  
+  export default App;
+  ```
+
+- ```css
+  .black-nav {
+    display : flex;
+    justify-content: center;
+    background : black;
+    width: 100%;
+    color: white;
+  }
+  
+  .article {
+    padding : 20px;
+    margin: 10px;
+    border-style: outset;
+  }
+  
+  a {
+    text-deco
+  ```
+
+- array나 object 형태의 state자료를 변경할 때는 직접 변경하지 말고 copy해서 사용
+
+- let copy = [...array] : ...으로 한번 벗겨낸 자료들을 다시 []에 담아서 복사
+
+---
+
+### component
+
+- [Components와 Props](https://ko.reactjs.org/docs/components-and-props.html)
+
+- 똑같은 코드가 반복될 때 컴포넌트가 유용합니다.
+
+- 컴포넌트를 통해 UI를 재사용 가능한 개별적인 여러 조각으로 나누고, 각 조각을 개별적으로 살펴볼 수 있습니다,
+  
+  - 코드의 재사용성 증가
+  
+  - 가독성 증가
+
+- props
+  
+  - props는 속성을 나타내는 데이터입니다.
+  
+  - 데이터를 가진 하나의 props 객체 인자를 받은 후 React 엘리먼트를 반환하므로, 유효한 React 컴포넌트입니다.
+  
+  - 이러한 컴포넌트는 JavaScript 함수이기 때문에, 말 그대로 “함수 컴포넌트”라고 호칭합니다.
+
+- ```jsx
+  /* eslint-disable */
+  import { useState } from 'react';
+  import './App.css';
+  
+  function App() {
+  
+    return (
+      <div className="App">
+        <nav className="black-nav">
+          <h4>블로그 네브바</h4>
+        </nav>
+        <section>
+          <Article num='0'></Article>
+          <Article num='1'></Article>
+          <Article num='2'></Article>
+        </section>
+      </div>
+    );
+  }
+  function Article (props) {
+    let [글제목들, 글제목들변경함수] = useState(['남자코트 추천', '강남 우동맛집', '파이썬 독학']);
+    let [따봉들, 따봉들변경함수] = useState([0, 0, 0])
+  
+    return (
+      <div className="article">
+        <a href="">
+          <h4>글제목 : { 글제목들[props.num] }</h4>
+        </a>
+        <p>
+          좋아요 <a href="" onClick={ (e) => {
+              e.preventDefault()
+              let copy = [...따봉들]
+              copy[props.num] += 1
+              따봉들변경함수(copy)
+            }
+          }>👍</a> / 좋아요 수 : { 따봉들[props.num] }
+        </p>
+        <p>2022. 07. 17. sun</p>
+      </div>
+    );
+  }
+  export default App;
+  ```
+
+- ```css
+  .black-nav {
+    display : flex;
+    justify-content: center;
+    background : black;
+    width: 100%;
+    color: white;
+  }
+  
+  .article {
+    padding : 20px;
+    margin: 10px;
+    border-style: outset;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  ```
