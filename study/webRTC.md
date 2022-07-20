@@ -82,4 +82,30 @@ WebRTC 시작하기
   
   - [여기 링크로 이동 후 따라 해보기!](https://yaongdaong.tistory.com/entry/Error-npm-WARN-config-global-global-local-are-deprecated-Use-locationglobal-instead)
 
+- ```
+  $ git init .
+  $ npm i @babel/core @babel/cli @babel/node -D
+      - 오류 발생시
+      $ npm uninstall @babel/core @babel/cli @babel/node -D
+      $ npm install -g babel@5
+  $ npm i @babel/preset/env
+  $ npm i @babel/preset-env -D
+  ```
 
+- ```json
+  {
+      "exec": "babel-node src/server.js"
+  }
+  ```
+  
+  - nodemon.json 에 작성
+
+- ```json
+  {
+      "presets": ["babel/preset-env"]
+  }
+  ```
+  
+  - babel.config.json 에 작성
+
+- 
